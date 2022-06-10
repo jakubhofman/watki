@@ -38,7 +38,7 @@ def transform_image(image):
     return image
 
 def producer(source, queue_producer,images_count):
-    while not end_of_cons.is_set():
+    while images_count>=0:
         queue_producer.put(source.get_data())
         images_count-=1
         time.sleep(0.05)
